@@ -189,7 +189,7 @@ class UsuarioService {
       usuario.senha = hashPassword(senha);
     }
 
-    await usuarioRepository.atualizar(usuario);
+    await usuarioRepository.alterar(usuario);
 
     return {
       nome: usuario.nome,

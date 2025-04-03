@@ -103,7 +103,7 @@ class UsuarioRepository {
     return result[0].id;
   }
 
-  async atualizar(params) {
+  async alterar(params) {
     const query = `
       UPDATE usuarios
       SET
@@ -112,6 +112,7 @@ class UsuarioRepository {
         adm = $4
         ${params.senha ? ', senha = $5' : ''}
       WHERE id = $1
+        AND ativo IS TRUE
     `;
 
     const binds = [
