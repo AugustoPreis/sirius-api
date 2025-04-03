@@ -53,11 +53,7 @@ class FuncionarioService {
     return funcionarioDB;
   }
 
-  async cadastrar(dados, usuarioLogado) {
-    if (!usuarioLogado.adm) {
-      throw new RequestError('Apenas admins podem cadastrar funcionários', StatusCodes.UNAUTHORIZED);
-    }
-
+  async cadastrar(dados) {
     const { nome } = dados;
 
     if (!isValidString(nome, { minLength: 3, maxLength: 100 })) {
@@ -78,11 +74,7 @@ class FuncionarioService {
     };
   }
 
-  async alterar(dados, usuarioLogado) {
-    if (!usuarioLogado.adm) {
-      throw new RequestError('Apenas admins podem alterar funcionários', StatusCodes.UNAUTHORIZED);
-    }
-
+  async alterar(dados) {
     const { id, nome } = dados;
 
     if (!isValidNumber(parseInt(id))) {
@@ -109,11 +101,7 @@ class FuncionarioService {
     };
   }
 
-  async inativar(dados, usuarioLogado) {
-    if (!usuarioLogado.adm) {
-      throw new RequestError('Apenas admins podem inativar funcionários', StatusCodes.UNAUTHORIZED);
-    }
-
+  async inativar(dados) {
     const id = parseInt(dados.id);
 
     if (!isValidNumber(id)) {

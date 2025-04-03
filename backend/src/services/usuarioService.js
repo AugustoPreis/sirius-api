@@ -32,11 +32,7 @@ class UsuarioService {
     return { ...usuarioLogado, token };
   }
 
-  async listar(dados, usuarioLogado) {
-    if (!usuarioLogado.adm) {
-      throw new RequestError('Apenas admins podem listar usuários', StatusCodes.UNAUTHORIZED);
-    }
-
+  async listar(dados) {
     const { nome, pagina, itensPagina } = dados;
     const params = {
       nome: '',
@@ -68,11 +64,7 @@ class UsuarioService {
     return { data, total };
   }
 
-  async buscarPorId(dados, usuarioLogado) {
-    if (!usuarioLogado.adm) {
-      throw new RequestError('Apenas admins podem visualizar usuários', StatusCodes.UNAUTHORIZED);
-    }
-
+  async buscarPorId(dados) {
     const id = parseInt(dados.id);
 
     if (!isValidNumber(id)) {
@@ -88,11 +80,7 @@ class UsuarioService {
     return usuarioDB;
   }
 
-  async cadastrar(dados, usuarioLogado) {
-    if (!usuarioLogado.adm) {
-      throw new RequestError('Apenas admins podem cadastrar usuários', StatusCodes.UNAUTHORIZED);
-    }
-
+  async cadastrar(dados) {
     const { nome, login, senha, adm } = dados;
 
     if (!isValidString(nome, { minLength: 3, maxLength: 100 })) {
@@ -134,11 +122,7 @@ class UsuarioService {
     };
   }
 
-  async alterar(dados, usuarioLogado) {
-    if (!usuarioLogado.adm) {
-      throw new RequestError('Apenas admins podem alterar usuários', StatusCodes.UNAUTHORIZED);
-    }
-
+  async alterar(dados) {
     const { id, nome, login, senha, adm } = dados;
     let atualizaSenha = false;
 
@@ -198,10 +182,6 @@ class UsuarioService {
   }
 
   async inativar(dados, usuarioLogado) {
-    if (!usuarioLogado.adm) {
-      throw new RequestError('Apenas admins podem deletar usuários', StatusCodes.UNAUTHORIZED);
-    }
-
     const id = parseInt(dados.id);
 
     if (!isValidNumber(id)) {

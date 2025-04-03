@@ -38,11 +38,7 @@ class FotoFuncionarioService {
     return fotoFuncionarioDB.foto;
   }
 
-  async cadastrar(dados, usuarioLogado) {
-    if (!usuarioLogado.adm) {
-      throw new RequestError('Apenas admins podem cadastrar fotos em funcionários', StatusCodes.UNAUTHORIZED);
-    }
-
+  async cadastrar(dados) {
     const { idFuncionario, foto } = dados;
     const uuid = v4();
 
@@ -66,11 +62,7 @@ class FotoFuncionarioService {
     }
   }
 
-  async deletar(dados, usuarioLogado) {
-    if (!usuarioLogado.adm) {
-      throw new RequestError('Apenas admins podem deletar fotos de funcionários', StatusCodes.UNAUTHORIZED);
-    }
-
+  async deletar(dados) {
     const { idFuncionario, uuid } = dados;
 
     if (!isValidString(uuid)) {

@@ -24,4 +24,12 @@ function authHandler(req, _, next) {
   });
 }
 
-module.exports = { authHandler };
+function adminHandler(req, _, next) {
+  if (!req.user.adm) {
+    throw new RequestError('Você não possui permissão para realizar esta ação', StatusCodes.FORBIDDEN);
+  }
+
+  next();
+}
+
+module.exports = { authHandler, adminHandler };
