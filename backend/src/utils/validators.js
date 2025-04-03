@@ -11,7 +11,7 @@ function isValidString(value, config) {
     return value.trim() != '';
   }
 
-  const { minLength, maxLength, trim } = config;
+  const { minLength, maxLength, trim = true } = config;
 
   if (trim) {
     value = value.trim();
