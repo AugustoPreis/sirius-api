@@ -1,0 +1,20 @@
+{
+  "author": "Augusto, Paulo e Grabriel",
+  "name": "sirius-api",
+  "version": "1.0.0",
+  "description": "Projeto WEB para cadastros referentes ao Sirius Vision",
+  "scripts": {
+    "dev": "nodemon ./src/app.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "http-status-codes": "^2.3.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.1"
+  }
+}
