@@ -10,7 +10,7 @@ function init() {
   const app = express();
 
   app.use(bodyParser.json());
-  app.use(routes);
+  app.use('/v1', routes);
   app.use(errorHandler);
   app.listen(config.port, () => {
     console.log(`Servidor iniciado na porta ${config.port}, v${version}`);
