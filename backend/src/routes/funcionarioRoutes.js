@@ -1,6 +1,8 @@
 const { Router } = require('express');
 const { authHandler } = require('../middlewares/authHandler');
+const { paramToBody } = require('../middlewares/paramToBody');
 const { funcionarioController } = require('../controllers/funcionarioController');
+const fotoFuncionarioRoutes = require('./fotoFuncionarioRoutes');
 
 const routes = Router();
 
@@ -23,5 +25,7 @@ routes.put('/:id', authHandler, (req, res, next) => {
 routes.delete('/:id', authHandler, (req, res, next) => {
   funcionarioController.inativar(req, res, next);
 });
+
+routes.use('/:idFuncionario/fotos', paramToBody('idFuncionario', 'number'), fotoFuncionarioRoutes);
 
 module.exports = routes;
