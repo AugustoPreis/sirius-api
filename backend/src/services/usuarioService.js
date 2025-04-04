@@ -122,7 +122,7 @@ class UsuarioService {
     };
   }
 
-  async alterar(dados) {
+  async alterar(dados, usuarioLogado) {
     const { id, nome, login, senha, adm } = dados;
     let atualizaSenha = false;
 
@@ -157,6 +157,10 @@ class UsuarioService {
 
     if (usuarioComLogin && usuarioComLogin.id !== usuarioDB.id) {
       throw new RequestError('Já existe um usuário cadastrado com esse login', StatusCodes.BAD_REQUEST);
+    }
+
+    if (usuarioDB.id === usuarioLogado.id && !adm) {
+      throw new RequestError('Não é possível remover o acesso de administrador do próprio usuário', StatusCodes.FORBIDDEN);
     }
 
     const usuario = {
