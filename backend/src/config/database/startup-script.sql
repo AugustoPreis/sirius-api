@@ -24,3 +24,11 @@ CREATE TABLE usuarios (
 	ativo bool NOT NULL,
 	data_cadastro timestamp NOT NULL
 );
+
+CREATE TABLE atendimentos (
+	id serial NOT NULL PRIMARY KEY,
+	id_funcionario int NOT NULL REFERENCES funcionarios,
+	data_inicio timestamp NOT NULL,
+	data_fim timestamp NOT NULL,
+	data_cadastro timestamp NOT NULL
+);
