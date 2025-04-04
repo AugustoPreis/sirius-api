@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Suspense from '../components/Suspense';
 import { useAuth } from '../providers/AuthProvider';
+import Suspense from '../components/Suspense';
+import Menu from '../components/Menu';
 
 export default function ProtectedRoute() {
   const auth = useAuth();
@@ -34,6 +35,7 @@ export default function ProtectedRoute() {
 
   return (
     <React.Fragment>
+      <Menu />
       <Suspense>
         <Outlet />
       </Suspense>
