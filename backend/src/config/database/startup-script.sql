@@ -1,6 +1,8 @@
 CREATE TABLE funcionarios (
 	id serial NOT NULL PRIMARY KEY,
 	nome varchar(100) NOT NULL,
+	data_admissao timestamp NOT NULL,
+	observacoes varchar(250),
 	ativo bool NOT NULL,
 	data_cadastro timestamp NOT NULL
 );

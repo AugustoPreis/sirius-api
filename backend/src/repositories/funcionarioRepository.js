@@ -29,7 +29,9 @@ class FuncionarioRepository {
     const query = `
       SELECT
         funcionarios.id,
-        funcionarios.nome
+        funcionarios.nome,
+        funcionarios.data_admissao "dataAdmissao",
+        funcionarios.observacoes
       FROM funcionarios
       WHERE funcionarios.id = $1
         AND funcionarios.ativo IS TRUE
@@ -44,17 +46,23 @@ class FuncionarioRepository {
     const query = `
       INSERT INTO funcionarios (
         nome,
+        data_admissao,
+        observacoes,
         ativo,
         data_cadastro
       ) VALUES (
         $1,
         $2,
-        $3
+        $3,
+        $4,
+        $5
       ) RETURNING id
     `;
 
     const result = await database.execute(query, [
       params.nome,
+      params.dataAdmissao,
+      params.observacoes,
       params.ativo,
       params.dataCadastro,
     ]);
@@ -65,12 +73,19 @@ class FuncionarioRepository {
   async alterar(params) {
     const query = `
       UPDATE funcionarios
-      SET nome = $2
+      SET nome = $2,
+        data_admissao = $3,
+        observacoes = $4
       WHERE id = $1
         AND ativo IS TRUE
     `;
 
-    const result = await database.execute(query, [params.id, params.nome]);
+    const result = await database.execute(query, [
+      params.id,
+      params.nome,
+      params.dataAdmissao,
+      params.observacoes,
+    ]);
 
     return result;
   }

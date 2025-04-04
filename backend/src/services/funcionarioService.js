@@ -54,14 +54,20 @@ class FuncionarioService {
   }
 
   async cadastrar(dados) {
-    const { nome } = dados;
+    const { nome, dataAdmissao, observacoes } = dados;
 
     if (!isValidString(nome, { minLength: 3, maxLength: 100 })) {
       throw new RequestError('O nome é obrigatório e deve conter entre 3 e 100 caracteres', StatusCodes.BAD_REQUEST);
     }
 
+    if (!dataAdmissao) {
+      throw new RequestError('A data de admissão é obrigatória', StatusCodes.BAD_REQUEST);
+    }
+
     const funcionario = {
       nome: nome.trim(),
+      dataAdmissao: new Date(dataAdmissao),
+      observacoes: isValidString(observacoes) ? observacoes.trim() : null,
       ativo: true,
       dataCadastro: new Date(),
     };
@@ -75,7 +81,7 @@ class FuncionarioService {
   }
 
   async alterar(dados) {
-    const { id, nome } = dados;
+    const { id, nome, dataAdmissao, observacoes } = dados;
 
     if (!isValidNumber(parseInt(id))) {
       throw new RequestError('O ID do funcionário é obrigatório', StatusCodes.BAD_REQUEST);
@@ -85,6 +91,10 @@ class FuncionarioService {
       throw new RequestError('O nome é obrigatório e deve conter entre 3 e 100 caracteres', StatusCodes.BAD_REQUEST);
     }
 
+    if (!dataAdmissao) {
+      throw new RequestError('A data de admissão é obrigatória', StatusCodes.BAD_REQUEST);
+    }
+
     const funcionarioDB = await funcionarioRepository.buscarPorId({ id });
 
     if (!funcionarioDB) {
@@ -92,6 +102,13 @@ class FuncionarioService {
     }
 
     funcionarioDB.nome = nome.trim();
+    funcionarioDB.dataAdmissao = new Date(dataAdmissao);
+
+    if (isValidString(observacoes)) {
+      funcionarioDB.observacoes = observacoes.trim();
+    } else {
+      funcionarioDB.observacoes = null;
+    }
 
     await funcionarioRepository.alterar(funcionarioDB);
 

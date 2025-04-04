@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Row, Modal, Form, Spin, message, Col, Input } from 'antd';
+import DatePicker from '../../components/DatePicker';
 
 export default function Cadastro({ id, children, onClose }) {
   const [visible, setVisible] = useState(false);
@@ -68,7 +69,7 @@ export default function Cadastro({ id, children, onClose }) {
       <Modal open={visible}
         title='Dados do Funcionário'
         okText='Salvar'
-        width={600}
+        width={700}
         centered
         destroyOnClose
         onCancel={handleClear}
@@ -79,11 +80,27 @@ export default function Cadastro({ id, children, onClose }) {
           onFinishFailed={() => message.info('Preencha os campos obrigatórios para continuar')}>
           <Spin spinning={loading}>
             <Row gutter={[10, 5]}>
-              <Col span={24}>
+              <Col sm={16}
+                xs={24}>
                 <Form.Item name='nome'
                   label='Nome'
                   rules={[{ required: true, message: '' }]}>
                   <Input maxLength={100} />
+                </Form.Item>
+              </Col>
+              <Col sm={8}
+                xs={24}>
+                <Form.Item name='dataAdmissao'
+                  label='Data de Admissão'
+                  rules={[{ required: true, message: '' }]}>
+                  <DatePicker />
+                </Form.Item>
+              </Col>
+              <Col span={24}>
+                <Form.Item name='observacoes'
+                  label='Observações'>
+                  <Input.TextArea maxLength={250}
+                    autoSize={{ minRows: 2, maxRows: 5 }} />
                 </Form.Item>
               </Col>
             </Row>
