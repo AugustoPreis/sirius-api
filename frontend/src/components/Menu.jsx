@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Menu as MenuAntd, Modal } from 'antd';
-import { BarChartOutlined, PoweroffOutlined, UserOutlined } from '@ant-design/icons';
+import { BarChartOutlined, PoweroffOutlined, SolutionOutlined, UserOutlined } from '@ant-design/icons';
 import { useAuth } from '../providers/AuthProvider';
 
 export default function Menu() {
@@ -20,6 +20,12 @@ export default function Menu() {
       onClick: () => navigate('/usuarios'),
       disabled: !auth.user?.adm,
       icon: <UserOutlined />,
+    },
+    {
+      key: 'funcionarios',
+      label: 'Funcionários',
+      onClick: () => navigate('/funcionarios'),
+      icon: <SolutionOutlined />,
     },
     {
       key: 'sair',
