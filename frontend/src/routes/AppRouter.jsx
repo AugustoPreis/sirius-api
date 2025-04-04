@@ -9,6 +9,7 @@ const Painel = lazy(() => import('../components/Painel'));
 //Telas
 const Login = lazy(() => import('../pages/login/Login'));
 const Dashboard = lazy(() => import('../pages/dashboard/Dashboard'));
+const Usuario = lazy(() => import('../pages/usuario/Usuario'));
 
 export default function AppRouter() {
   return (
@@ -23,6 +24,8 @@ export default function AppRouter() {
             element={<Dashboard />} />
           <Route path='/dashboard'
             element={<Dashboard />} />
+          <Route path='/usuarios'
+            element={<Usuario />} />
         </Route>
         <Route path='*'
           element={<NotFound />} />
