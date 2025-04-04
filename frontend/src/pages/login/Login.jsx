@@ -22,7 +22,11 @@ export default function Login() {
       auth.login(data);
       notification.success({
         message: 'Sucesso!',
-        description: `Bem vindo(a) ${data.nome}`,
+        description: (
+          <span>
+            Bem vindo(a) <b>{data.nome}</b>
+          </span>
+        ),
       });
     }).catch((err) => {
       setLoading(false);
@@ -35,7 +39,7 @@ export default function Login() {
 
   if (auth.isAuthenticated()) {
     return (
-      <Navigate to='/inicio' />
+      <Navigate to='/dashboard' />
     );
   }
 
