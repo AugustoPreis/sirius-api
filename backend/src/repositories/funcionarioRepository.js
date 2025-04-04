@@ -7,7 +7,8 @@ class FuncionarioRepository {
       SELECT
         funcionarios.id,
         funcionarios.nome,
-        funcionarios.data_cadastro "dataCadastro"
+        funcionarios.data_cadastro "dataCadastro",
+        COUNT(funcionarios.id) OVER() "total"
       FROM funcionarios
       WHERE funcionarios.nome ILIKE '%' || $1 || '%'
         AND funcionarios.ativo IS TRUE
