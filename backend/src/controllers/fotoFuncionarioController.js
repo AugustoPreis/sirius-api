@@ -34,6 +34,8 @@ class FotoFuncionarioController {
 
   async cadastrar(req, res, next) {
     try {
+      req.body.foto = req.file?.buffer;
+
       const result = await fotoFuncionarioService.cadastrar(req.body, req.user);
 
       res.status(StatusCodes.CREATED).json(result);

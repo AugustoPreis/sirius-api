@@ -21,6 +21,8 @@ class FotoFuncionarioRepository {
   async buscarPorUUID(params) {
     const query = `
       SELECT
+        fotos_funcionario.id,
+        fotos_funcionario.id_funcionario "idFuncionario",
         fotos_funcionario.foto
       FROM fotos_funcionario
       WHERE fotos_funcionario.id_funcionario = $1

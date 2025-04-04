@@ -1,9 +1,10 @@
 import React from 'react';
 import { format } from 'date-fns';
 import { Button, Card, Col, Pagination, Popconfirm, Row } from 'antd';
-import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import { EditOutlined, DeleteOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import NotFound from '../../components/NotFound';
 import Cadastro from './Cadastro';
+import Fotos from './Fotos';
 
 export default function Listagem({ data, fetch, pagination, onDelete }) {
 
@@ -41,6 +42,11 @@ export default function Listagem({ data, fetch, pagination, onDelete }) {
                       onClose={() => fetch()}>
                       <Button icon={<EditOutlined />} />
                     </Cadastro>
+                  </Col>
+                  <Col>
+                    <Fotos id={funcionario.id}>
+                      <Button icon={<VideoCameraOutlined />} />
+                    </Fotos>
                   </Col>
                   <Col>
                     <Popconfirm title='Remover registro?'
