@@ -63,7 +63,7 @@ export default function Usuario() {
     axios.delete(`/v1/usuarios/${id}`)
       .then(() => {
         //volta para a página anterior caso o item deletado seja o último da página
-        fetch(pagination.pagina - (data.length === 1 ? 1 : 0));
+        fetch(pagination.pagina - (data.length && pagination.pagina > 1 === 1 ? 1 : 0));
       })
       .catch((err) => {
         setLoading(false);
