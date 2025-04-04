@@ -90,7 +90,7 @@ function showDatabaseError(context) {
   }
 
   if (Array.isArray(params) && params.length > 0) {
-    message += `\nparams: ${JSON.stringify(params)}`;
+    message += `\nparams: ${JSON.stringify(params.map((param) => Buffer.isBuffer(param) ? '[Buffer]' : param))}`;
   }
 
   if (connect) {
