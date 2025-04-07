@@ -7,6 +7,7 @@ const NotFound = lazy(() => import('../components/NotFound'));
 const Painel = lazy(() => import('../components/Painel'));
 
 //Telas
+const Sobre = lazy(() => import('../pages/sobre/Sobre'));
 const Login = lazy(() => import('../pages/login/Login'));
 const Dashboard = lazy(() => import('../pages/dashboard/Dashboard'));
 const Usuario = lazy(() => import('../pages/usuario/Usuario'));
@@ -15,6 +16,8 @@ const Funcionario = lazy(() => import('../pages/funcionario/Funcionario'));
 export default function AppRouter() {
   return (
     <Routes>
+      <Route path='sobre'
+        element={<Sobre />} />
       <Route element={<Painel />}>
         <Route index
           element={<Login />} />
