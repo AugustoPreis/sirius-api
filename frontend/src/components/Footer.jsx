@@ -8,7 +8,7 @@ export default function Footer() {
       justify='center'>
       <Divider />
       <Col>
-        © 2025 <a href='#'>Sirius Vision</a>
+        &copy; {new Date().getFullYear()} <a href='#'>Sirius Vision</a>
       </Col>
     </Row>
   );
