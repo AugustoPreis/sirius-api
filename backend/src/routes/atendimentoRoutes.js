@@ -7,6 +7,10 @@ routes.get('/', (req, res, next) => {
   atendimentoController.listar(req, res, next);
 });
 
+routes.get('/ranking', (req, res, next) => {
+  atendimentoController.ranking(req, res, next);
+});
+
 routes.get('/quantidade-por-funcionario', (req, res, next) => {
   atendimentoController.qtdAtendimentos(req, res, next);
 });

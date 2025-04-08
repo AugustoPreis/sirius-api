@@ -13,6 +13,16 @@ class AtendimentoController {
     }
   }
 
+  async ranking(req, res, next) {
+    try {
+      const result = await atendimentoService.ranking(req.query, req.user);
+
+      res.status(StatusCodes.OK).json(result);
+    } catch (err) {
+      next(err);
+    }
+  }
+
   async qtdAtendimentos(req, res, next) {
     try {
       const result = await atendimentoService.qtdAtendimentos(req.query, req.user);

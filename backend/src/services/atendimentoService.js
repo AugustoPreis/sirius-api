@@ -48,6 +48,26 @@ class AtendimentoService {
     return { data, total };
   }
 
+  async ranking(dados) {
+    const { dias: numeroDias, limite: numeroLimite } = dados;
+    const params = {
+      dias: 7,
+      limite: 5,
+    }
+
+    if (isValidNumber(parseInt(numeroDias))) {
+      params.dias = parseInt(numeroDias);
+    }
+
+    if (isValidNumber(parseInt(numeroLimite))) {
+      params.limite = parseInt(numeroLimite);
+    }
+
+    const ranking = await atendimentoRepository.ranking(params);
+
+    return ranking;
+  }
+
   async qtdAtendimentos(dados) {
     const { dia, idFuncionario, inativos } = dados;
     const params = {

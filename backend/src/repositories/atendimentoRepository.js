@@ -55,6 +55,46 @@ class AtendimentoRepository {
     return result;
   }
 
+  async ranking(params) {
+    const query = `
+      SELECT
+        funcionarios.nome,
+        (
+          SELECT
+            json_agg(
+              json_build_object(
+                'dia', to_char(current_timestamp - (INTERVAL '1 day' * serie), 'dd/MM'),
+                'atendimentos', (
+                  SELECT
+                    count(atendimentos.id)
+                  FROM atendimentos
+                  WHERE atendimentos.id_funcionario = funcionarios.id
+                    AND date_trunc('day', atendimentos.data_inicio) = date_trunc('day', current_timestamp - (INTERVAL '1 day' * serie))
+                )
+              )
+            )
+          FROM generate_series($2 - 1, 0, -1) AS serie
+        ) "dias"
+      FROM atendimentos
+        INNER JOIN funcionarios ON funcionarios.id = atendimentos.id_funcionario
+      WHERE	date_trunc('day', atendimentos.data_inicio)
+              BETWEEN
+            date_trunc('day', current_timestamp - (($2 - 1) * INTERVAL '1 day'))
+              AND
+            date_trunc('day', current_timestamp)
+      GROUP BY funcionarios.id
+      ORDER BY count(atendimentos.id) DESC
+      LIMIT $1
+    `;
+
+    const result = await database.execute(query, [
+      params.limite,
+      params.dias,
+    ]);
+
+    return result;
+  }
+
   async salvar(params) {
     const query = `
       INSERT INTO atendimentos (
