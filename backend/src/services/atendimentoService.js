@@ -49,7 +49,7 @@ class AtendimentoService {
   }
 
   async qtdAtendimentos(dados) {
-    const { dia, inativos } = dados;
+    const { dia, idFuncionario, inativos } = dados;
     const params = {
       dia: null,
       inativos: inativos === 'true',
@@ -57,6 +57,10 @@ class AtendimentoService {
 
     if (!dia) {
       throw new RequestError('Dia não informado', StatusCodes.BAD_REQUEST);
+    }
+
+    if (isValidNumber(parseInt(idFuncionario))) {
+      params.idFuncionario = parseInt(idFuncionario);
     }
 
     params.dia = new Date(dia);

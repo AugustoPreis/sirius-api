@@ -42,11 +42,15 @@ class AtendimentoRepository {
           $2::bool IS TRUE
           OR funcionarios.ativo IS TRUE
         )
+        AND (
+          $3::int IS NULL
+          OR funcionarios.id = $3::int
+        )
       GROUP BY funcionarios.id
       ORDER BY funcionarios.nome
     `;
 
-    const result = await database.execute(query, [params.dia, params.inativos]);
+    const result = await database.execute(query, [params.dia, params.inativos, params.idFuncionario]);
 
     return result;
   }
