@@ -15,7 +15,7 @@ function authHandler(req, _, next) {
 
   jwt.verify(token, envConfig.jwt.secretKey, (err, decodedUser) => {
     if (err) {
-      throw new RequestError(err.message, StatusCodes.UNAUTHORIZED);
+      throw new RequestError(handleErrorMessage(err.message), StatusCodes.UNAUTHORIZED);
     }
 
     req.user = decodedUser;
@@ -30,6 +30,17 @@ function adminHandler(req, _, next) {
   }
 
   next();
+}
+
+function handleErrorMessage(message) {
+  switch (message) {
+    case 'jwt expired':
+      return 'Login expirado';
+    case 'invalid token':
+      return 'Login inválido';
+    default:
+      return 'Usuário não autenticado';
+  }
 }
 
 module.exports = { authHandler, adminHandler };
