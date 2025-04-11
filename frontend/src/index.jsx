@@ -15,7 +15,7 @@ appRoot.render(
     <ConfigProvider locale={ptBR}
       theme={{
         token: {
-          colorPrimary: '#1A8FbF',
+          colorPrimary: '#2ec1d7',
         },
       }}>
       <Suspense>

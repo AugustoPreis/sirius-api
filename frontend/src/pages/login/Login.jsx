@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Button, Card, Col, Form, Input, notification, Row, Spin } from 'antd';
 import { Navigate } from 'react-router-dom';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import logo from '../../../assets/logo.png';
+import logo from '../../../assets/logo2.png';
 import { useAuth } from '../../providers/AuthProvider';
 
 export default function Login() {

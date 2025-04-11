@@ -8,7 +8,7 @@ import Menu from '../components/Menu';
 export default function ProtectedRoute() {
   const auth = useAuth();
   const navigate = useNavigate();
-
+/*
   useEffect(() => {
     if (!auth.isAuthenticated()) {
       navigate('/entrar');
@@ -32,7 +32,7 @@ export default function ProtectedRoute() {
     });
   }, []);
 
-
+*/
   return (
     <React.Fragment>
       <Menu />
