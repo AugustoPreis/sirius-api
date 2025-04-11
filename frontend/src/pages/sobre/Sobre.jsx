@@ -3,6 +3,7 @@ import logo from '../../../assets/logo.png';
 import './sobre.css';
 import Depoimentos from './Depoimentos'; 
 import ComoFunciona from './ComoFunciona';
+import EmpresasAtendidas from './EmpresasAtendidas'; // ✅ novo import
 
 export default function Sobre() {
   const [contato, setContato] = useState({});
@@ -83,6 +84,9 @@ export default function Sobre() {
 
       {/* SEÇÃO DEPOIMENTOS */}
       <Depoimentos />
+
+      {/* NOVA SEÇÃO: Empresas Atendidas */}
+      <EmpresasAtendidas />
 
       <section id='contato' className='contato'>
         <div className='container'>

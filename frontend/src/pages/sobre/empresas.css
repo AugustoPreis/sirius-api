@@ -1,0 +1,43 @@
+.empresas {
+    background-color: #ffffff;
+    padding: 3rem 0;
+  }
+  
+  .empresas h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #0292b7;
+    margin-bottom: 2rem;
+  }
+  
+  .empresa-slide {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .empresa-slide img {
+    max-height: 60px;
+    max-width: 100%;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+  
+  .empresa-slide img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+  }
+  
+  /* Slick slider adjustments */
+  .slick-slide {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .slick-track {
+    display: flex;
+    align-items: center;
+  }
+  
