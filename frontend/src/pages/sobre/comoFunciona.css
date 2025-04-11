@@ -1,0 +1,49 @@
+.como-funciona {
+    background-color: #f9fafd;
+    padding: 4rem 0;
+  }
+  
+  .como-funciona h2 {
+    text-align: center;
+    color: #0292b7;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .passos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .passo-card {
+    background-color: #ffffff;
+    border: 1px solid #99dfec;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .passo-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .icone {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .passo-card h3 {
+    font-size: 1.2rem;
+    color: #0292b7;
+    margin-bottom: 0.5rem;
+  }
+  
+  .passo-card p {
+    font-size: 0.95rem;
+    color: #0d1b2a;
+  }
+  
