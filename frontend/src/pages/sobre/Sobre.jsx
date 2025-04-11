@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import logo from '../../../assets/logo.png';
 import './sobre.css';
+import Depoimentos from './Depoimentos'; 
 
 export default function Sobre() {
   const [contato, setContato] = useState({});
@@ -24,7 +25,7 @@ export default function Sobre() {
   }
 
   const handleSubmit = () => {
-    //TODO: enviar solicitação de contato
+    
   }
 
   return (
@@ -81,6 +82,9 @@ export default function Sobre() {
           </div>
         </div>
       </section>
+
+      {/* NOVA SEÇÃO DE DEPOIMENTOS */}
+      <Depoimentos />
 
       <section id='contato'
         className='contato'>

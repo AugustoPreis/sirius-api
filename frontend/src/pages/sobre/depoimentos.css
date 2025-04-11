@@ -1,0 +1,64 @@
+.depoimentos {
+    background-color: #ffffff;
+    padding: 4rem 0;
+  }
+  
+  .depoimentos h2 {
+    text-align: center;
+    color: #0292b7;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .depoimento-card {
+    background-color: #f9fafd;
+    border: 1px solid #99dfec;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 0 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .comentario {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #0d1b2a;
+  }
+  
+  .cliente {
+    font-size: 0.95rem;
+    color: #0292b7;
+    text-align: right;
+  }
+  
+  .slick-dots li button:before {
+    color: #2ec1d7;
+  }
+  
+  .slick-arrow {
+    z-index: 10;
+  }
+  
+  /* Espaçamento entre slides */
+.slick-slide {
+    padding: 0 15px;
+  }
+  
+  /* Ajuste geral do container do slider */
+  .slick-list {
+    margin: 0 -15px;
+  }
+  
+  /* Evita que o autoplay pare ao passar o mouse */
+  .slick-slider {
+    pointer-events: none;
+  }
+  
+  .slick-slide > div {
+    pointer-events: auto;
+  }
+  
