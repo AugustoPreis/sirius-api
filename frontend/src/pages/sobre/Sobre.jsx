@@ -3,7 +3,11 @@ import logo from '../../../assets/logo.png';
 import './sobre.css';
 import Depoimentos from './Depoimentos'; 
 import ComoFunciona from './ComoFunciona';
-import EmpresasAtendidas from './EmpresasAtendidas'; // ✅ novo import
+import EmpresasAtendidas from './EmpresasAtendidas'; 
+import DemoDashboard from './DemoDashboard';
+import Faq from './Faq';
+
+
 
 export default function Sobre() {
   const [contato, setContato] = useState({});
@@ -82,11 +86,19 @@ export default function Sobre() {
         </div>
       </section>
 
+      {/* NOVA SEÇÃO: Demonstração do Dashboard */}
+      <DemoDashboard />
+
+
       {/* SEÇÃO DEPOIMENTOS */}
       <Depoimentos />
 
+
       {/* NOVA SEÇÃO: Empresas Atendidas */}
       <EmpresasAtendidas />
+
+      {/* NOVA SEÇÃO: FAQ */}
+      <Faq />
 
       <section id='contato' className='contato'>
         <div className='container'>
