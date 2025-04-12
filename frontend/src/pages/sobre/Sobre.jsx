@@ -6,6 +6,8 @@ import ComoFunciona from './ComoFunciona';
 import EmpresasAtendidas from './EmpresasAtendidas'; 
 import DemoDashboard from './DemoDashboard';
 import Faq from './Faq';
+import CtaFinal from './CtaFinal';
+import DemoInterativo from './DemoInterativo';
 
 
 
@@ -64,7 +66,9 @@ export default function Sobre() {
             A Sirius Vision é uma startup inovadora especializada em soluções de
             visão computacional e inteligência artificial. Nossa missão é fornecer
             ferramentas inteligentes para interpretar o mundo visual e impulsionar
-            a tomada de decisões nos negócios.
+            a tomada de decisões nos negócios, ajudando você empresário a ter dados
+            da produtividade de sua equipe em tempo real, além de medir outros padrões
+            importantes para o desenvolvimento do seu negócio.
           </p>
         </div>
       </section>
@@ -86,8 +90,12 @@ export default function Sobre() {
         </div>
       </section>
 
+
       {/* NOVA SEÇÃO: Demonstração do Dashboard */}
-      <DemoDashboard />
+      {/*<DemoDashboard />*/}
+
+      {/* NOVA SEÇÃO: Demonstração Interativa */}
+      <DemoInterativo />
 
 
       {/* SEÇÃO DEPOIMENTOS */}
@@ -100,10 +108,14 @@ export default function Sobre() {
       {/* NOVA SEÇÃO: FAQ */}
       <Faq />
 
+      {/* NOVA SEÇÃO: CTA Final */}
+      <CtaFinal />
+
+
       <section id='contato' className='contato'>
         <div className='container'>
           <h2>Entre em Contato</h2>
-          <p>Quer saber mais? Envie uma mensagem para nosso time.</p>
+          <p>Quer saber mais? Envie uma mensagem para nosso time, que vamos entrar em contato assim que possível.</p>
           <form className='form' onSubmit={handleSubmit}>
             <input
               required

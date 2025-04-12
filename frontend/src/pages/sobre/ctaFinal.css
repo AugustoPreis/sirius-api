@@ -1,0 +1,35 @@
+.cta-final {
+    background: linear-gradient(135deg, #2ec1d7, #0292b7);
+    color: #ffffff;
+    padding: 4rem 1.5rem;
+    text-align: center;
+  }
+  
+  .cta-final h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+  
+  .cta-final p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+  }
+  
+  .btn-cta {
+    background-color: #ffffff;
+    color: #0292b7;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+  }
+  
+  .btn-cta:hover {
+    background-color: #e6f7fb;
+  }
+  

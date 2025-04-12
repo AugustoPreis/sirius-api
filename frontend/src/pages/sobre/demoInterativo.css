@@ -1,0 +1,37 @@
+.demo-interativo {
+    background-color: #f9fafd;
+    padding: 4rem 1.5rem;
+    text-align: center;
+  }
+  
+  .demo-interativo h2 {
+    font-size: 2rem;
+    color: #0292b7;
+    margin-bottom: 1rem;
+  }
+  
+  .demo-interativo .descricao {
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    font-size: 1rem;
+    color: #444;
+  }
+  
+  .iframe-wrapper {
+    position: relative;
+    box-sizing: content-box;
+    max-height: 80vh;
+    max-height: 80svh;
+    width: 100%;
+    aspect-ratio: 2; /* você pode ajustar para ficar mais wide ou mais alto */
+  }
+  
+  .iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
