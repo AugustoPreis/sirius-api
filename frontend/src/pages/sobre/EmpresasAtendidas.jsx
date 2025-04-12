@@ -5,12 +5,10 @@ import 'slick-carousel/slick/slick-theme.css';
 import './empresas.css';
 
 const empresas = [
-  { nome: 'Intelbras', logo: '/logos/intelbras.png' },
-  { nome: 'Magazine Luiza', logo: '/logos/magalu.png' },
-  { nome: 'Ponto Frio', logo: '/logos/ponto-frio.png' },
-  { nome: 'Droga Raia', logo: '/logos/raia.png' },
-  { nome: 'Ambev', logo: '/logos/ambev.png' },
-  { nome: 'Submarino', logo: '/logos/submarino.png' },
+  { nome: 'Guzzatti', logo: 'public/logos/guzzatti.png' },
+  { nome: 'Subway', logo: 'public/logos/subway.png' },
+  { nome: 'Posto Avenida', logo: 'public/logos/posto-avenida.png' },
+  { nome: 'SATC', logo: 'public/logos/satc.png' },
 ];
 
 export default function EmpresasAtendidas() {
