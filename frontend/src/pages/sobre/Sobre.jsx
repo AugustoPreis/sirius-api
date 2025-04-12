@@ -50,14 +50,20 @@ export default function Sobre() {
       </header>
 
       <section className='hero'>
-        <div className='container'>
-          <h2>Inteligência para ver além</h2>
-          <p>Transformamos imagens em decisões com tecnologia de ponta.</p>
-          <a href='#contato' className='btn'>
-            Fale com a gente
-          </a>
+        <div className='container hero-content'>
+          <div className='hero-texto'>
+            <h2>Inteligência para ver além</h2>
+            <p>Transformamos imagens em decisões com tecnologia de ponta.</p>
+            <a href='#contato' className='btn'>
+              Fale com a gente
+            </a>
+          </div>
+          <div className='hero-gif'>
+            <img src='/gifs/gif-computer-vision.gif' alt='Demonstração de visão computacional' />
+          </div>
         </div>
       </section>
+
 
       <section id='sobre' className='sobre'>
         <div className='container'>
