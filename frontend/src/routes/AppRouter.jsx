@@ -11,7 +11,6 @@ const Sobre = lazy(() => import('../pages/sobre/Sobre'));
 const Login = lazy(() => import('../pages/login/Login'));
 const Dashboard = lazy(() => import('../pages/dashboard/Dashboard'));
 const Usuario = lazy(() => import('../pages/usuario/Usuario'));
-const Funcionario = lazy(() => import('../pages/funcionario/Funcionario'));
 
 export default function AppRouter() {
   return (
@@ -30,8 +29,6 @@ export default function AppRouter() {
             element={<Dashboard />} />
           <Route path='/usuarios'
             element={<Usuario />} />
-          <Route path='/funcionarios'
-            element={<Funcionario />} />
         </Route>
         <Route path='*'
           element={<NotFound />} />

@@ -1,20 +1,3 @@
-CREATE TABLE funcionarios (
-	id serial NOT NULL PRIMARY KEY,
-	nome varchar(100) NOT NULL,
-	data_admissao timestamp NOT NULL,
-	observacoes varchar(250),
-	ativo bool NOT NULL,
-	data_cadastro timestamp NOT NULL
-);
-
-CREATE TABLE fotos_funcionario (
-	id serial NOT NULL PRIMARY KEY,
-	id_funcionario int NOT NULL REFERENCES funcionarios,
-  uuid uuid NOT NULL UNIQUE,
-	foto bytea NOT NULL,
-	data_cadastro timestamp NOT NULL
-);
-
 CREATE TABLE usuarios (
 	id serial NOT NULL PRIMARY KEY,
 	nome varchar(100) NOT NULL,
@@ -25,10 +8,5 @@ CREATE TABLE usuarios (
 	data_cadastro timestamp NOT NULL
 );
 
-CREATE TABLE atendimentos (
-	id serial NOT NULL PRIMARY KEY,
-	id_funcionario int NOT NULL REFERENCES funcionarios,
-	data_inicio timestamp NOT NULL,
-	data_fim timestamp NOT NULL,
-	data_cadastro timestamp NOT NULL
-);
+INSERT INTO usuarios VALUES --Login sistema/sistema
+	(DEFAULT, 'SISTEMA', 'sistema', '$2b$10$y4P8/IM3/pyYXwDTFoXOuuLGjFgfWenLZhsl6rGCQrdJgdUqiQSdK', TRUE, TRUE, current_timestamp);

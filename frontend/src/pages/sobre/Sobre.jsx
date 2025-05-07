@@ -16,7 +16,7 @@ export default function Sobre() {
   const servicos = [
     {
       title: 'Contador de Atendimentos',
-      description: 'Soluções personalizadas para contar a quantidade de atendimentos realizados por cada funcionário',
+      description: 'Soluções personalizadas para contar a quantidade de atendimentos realizados',
     },
     {
       title: 'Reconhecimento de Imagens',

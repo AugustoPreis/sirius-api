@@ -22,12 +22,6 @@ export default function Menu() {
       icon: <UserOutlined />,
     },
     {
-      key: 'funcionarios',
-      label: 'Funcionários',
-      onClick: () => navigate('/funcionarios'),
-      icon: <SolutionOutlined />,
-    },
-    {
       key: 'sair',
       label: 'Sair',
       onClick: () => logout(),
