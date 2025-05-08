@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactECharts from 'echarts-for-react';
+import CardGrid from '../../../components/CardGrid';
 
 export default function Entradas() {
   const option = {
-    title: { left: 'center', text: 'Entradas X Vendas no dia' },
     tooltip: {
       trigger: 'axis',
       axisPointer: {
@@ -32,26 +32,31 @@ export default function Entradas() {
         name: 'Entradas',
         type: 'line',
         smooth: true,
+        itemStyle: { color: '#e1b12c' },
         data: [0, 0, 0, 0, 0, 0, 0, 0, 5, 15, 40, 80, 20, 40, 50, 80, 20, 40, 50, 80, 20, 5, 0, 0],
       },
       {
         name: 'Vendas',
         type: 'line',
         smooth: true,
+        itemStyle: { color: '#44bd32' },
         data: [0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 6, 1, 2, 2, 5, 1, 2, 3, 6, 1, 0, 0, 0],
       },
     ],
   }
 
   return (
-    <ReactECharts notMerge
-      option={option}
-      lazyUpdate={true}
-      style={{ minHeight: 400 }}
-      loadingOption={{
-        text: 'Carregando...',
-        color: '#1A8FbF',
-        fontSize: 24,
-      }} />
+    <CardGrid title='Entradas X Vendas'
+      color='#2ec1d7'>
+      <ReactECharts notMerge
+        option={option}
+        lazyUpdate={true}
+        style={{ minHeight: 400 }}
+        loadingOption={{
+          text: 'Carregando...',
+          color: '#1A8FbF',
+          fontSize: 24,
+        }} />
+    </CardGrid>
   );
 }

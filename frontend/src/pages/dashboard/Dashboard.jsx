@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import DatePicker from '../../components/DatePicker';
 import GraficoEntradas from './graficos/Entradas';
 import MapasCalor from './mapasCalor/MapasCalor';
+import GraficoHomensMulheres from './graficos/HomensMulheres';
+import Cards from './Cards';
 
 export default function Dashboard() {
   const [filtro, setFiltro] = useState({ periodo: [new Date(), new Date()] });
@@ -17,8 +19,7 @@ export default function Dashboard() {
 
   return (
     <Card title='Dashboard'>
-      <Row gutter={[10, 10]}
-        style={{ marginBottom: 20 }}>
+      <Row>
         <Col xl={5}
           lg={6}
           md={8}
@@ -31,13 +32,20 @@ export default function Dashboard() {
         </Col>
       </Row>
       <Divider />
-      <Row gutter={[10, 20]}>
+      <Row gutter={[10, 10]}>
+        <Col span={24}>
+          <Cards />
+        </Col>
+        <Col xl={12}
+          xs={24}>
+          <GraficoHomensMulheres />
+        </Col>
+        <Col xl={12}
+          xs={24}>
+          <MapasCalor />
+        </Col>
         <Col span={24}>
           <GraficoEntradas />
-        </Col>
-        <Divider />
-        <Col span={24}>
-          <MapasCalor />
         </Col>
       </Row>
     </Card>
