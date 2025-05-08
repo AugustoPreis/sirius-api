@@ -6,7 +6,7 @@ import 'antd/es/date-picker/style/index';
 
 const Picker = generatePicker(dateFnsGenerateConfig);
 
-export default function DatePicker(props) {
+export default function DatePicker({ rangePicker, ...props }) {
   const pickerProps = {
     locale: ptBR,
     format: 'dd/MM/yyyy',
@@ -17,6 +17,12 @@ export default function DatePicker(props) {
   //Converte datas em formato de string
   if (typeof props.value === 'string') {
     pickerProps.value = new Date(props.value);
+  }
+
+  if (rangePicker) {
+    return (
+      <Picker.RangePicker {...pickerProps} />
+    );
   }
 
   return (
