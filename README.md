@@ -20,6 +20,10 @@ Antes de iniciar o backend, é necessário subir o banco de dados via Docker.
    docker compose up --build
    ```
 
+> 💡 **Nota:** Ao iniciar o banco de dados, o Docker irá criar automaticamente um usuário padrão com as seguintes credenciais:
+> - **Login:** `sistema`
+> - **Senha:** `sistema`
+
 ### 🔧 Configurar variáveis de ambiente
 
 Na pasta `/backend`, crie um arquivo `.env` baseado no `.env.example`:
@@ -33,6 +37,7 @@ DB_USER=postgres
 DB_PASS=postgres
 DB_PORT=5432
 ```
+
 Recomendamos utilizar um UUID no `JWT_SECRET`
 
 ### ▶️ Rodar o Backend
