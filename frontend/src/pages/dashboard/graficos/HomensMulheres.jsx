@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactECharts from 'echarts-for-react';
+import { useDashboardContext } from '../../../context/DashboardContext';
 import CardGrid from '../../../components/CardGrid';
 
 export default function HomensMulheres() {
+  const { data } = useDashboardContext();
   const option = {
     tooltip: {
       trigger: 'item',
@@ -14,8 +16,8 @@ export default function HomensMulheres() {
         type: 'pie',
         radius: '50%',
         data: [
-          { value: 36, name: 'Homens', itemStyle: { color: '#1A8FbF' } },
-          { value: 64, name: 'Mulheres', itemStyle: { color: '#FF6F61' } },
+          { value: data?.graficos?.distribuicaoGenero?.homens, name: 'Homens', itemStyle: { color: '#1A8FbF' } },
+          { value: data?.graficos?.distribuicaoGenero?.mulheres, name: 'Mulheres', itemStyle: { color: '#FF6F61' } },
         ],
       },
     ],

@@ -1,6 +1,8 @@
-import { Card, Col, Divider, Row } from 'antd';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Card, Col, Divider, Modal, Row, Spin } from 'antd';
+import axios from 'axios';
 import DatePicker from '../../components/DatePicker';
+import { DashboardContext } from '../../context/DashboardContext';
 import GraficoEntradas from './graficos/Entradas';
 import MapasCalor from './mapasCalor/MapasCalor';
 import GraficoHomensMulheres from './graficos/HomensMulheres';
@@ -8,6 +10,34 @@ import Cards from './Cards';
 
 export default function Dashboard() {
   const [filtro, setFiltro] = useState({ periodo: [new Date(), new Date()] });
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    fetchData();
+  }, [filtro]);
+
+  const fetchData = () => {
+    setLoading(true);
+
+    const params = {
+      inicio: filtro.periodo[0].toISOString(),
+      fim: filtro.periodo[1].toISOString(),
+    }
+
+    axios.get('/v1/dashboard', {
+      params,
+    }).then((res) => {
+      setLoading(false);
+      setData(res.data);
+    }).catch((err) => {
+      setLoading(false);
+      Modal.error({
+        title: 'Erro!',
+        content: err.response.data.message,
+      });
+    });
+  }
 
   const changeFiltro = (value, key) => {
     if (key === 'periodo' && (!Array.isArray(value) || value.length !== 2)) {
@@ -32,22 +62,27 @@ export default function Dashboard() {
         </Col>
       </Row>
       <Divider />
-      <Row gutter={[10, 10]}>
-        <Col span={24}>
-          <Cards />
-        </Col>
-        <Col xl={12}
-          xs={24}>
-          <GraficoHomensMulheres />
-        </Col>
-        <Col xl={12}
-          xs={24}>
-          <MapasCalor />
-        </Col>
-        <Col span={24}>
-          <GraficoEntradas />
-        </Col>
-      </Row>
+      <DashboardContext.Provider value={{ data, loading }}>
+        <Spin spinning={loading}
+          size='large'>
+          <Row gutter={[10, 10]}>
+            <Col span={24}>
+              <Cards />
+            </Col>
+            <Col xl={12}
+              xs={24}>
+              <GraficoHomensMulheres />
+            </Col>
+            <Col xl={12}
+              xs={24}>
+              <MapasCalor />
+            </Col>
+            <Col span={24}>
+              <GraficoEntradas />
+            </Col>
+          </Row>
+        </Spin>
+      </DashboardContext.Provider>
     </Card>
   );
 }
